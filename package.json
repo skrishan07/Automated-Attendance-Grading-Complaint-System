@@ -1,0 +1,19 @@
+{
+  "name": "automated-attendance-grading-complaint-system",
+  "version": "1.0.0",
+  "description": "Automated Attendance Grading Complaint Management System",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skrishan07/Automated-Attendance-Grading-Complaint-System.git"
+  },
+  "author": "Saurabh Krishan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skrishan07/Automated-Attendance-Grading-Complaint-System/issues"
+  },
+  "homepage": "https://github.com/skrishan07/Automated-Attendance-Grading-Complaint-System#readme"
+}
