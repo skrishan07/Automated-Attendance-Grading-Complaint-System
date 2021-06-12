@@ -1,0 +1,36 @@
+.formLogin{
+    width: 400px;
+    margin: 5% auto;
+}
+.formLogin .card{
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  border-left: solid #007BFF 4px;
+}
+.formLogin h3{
+  color: #007BFF;
+}
+.svgHome img{
+    height: 200px;
+    padding: 20px;
+}
+.svgHome:hover{
+    box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    transform: scale(1.02);
+}
+.svgEmpty img{
+  height: 400px;
+  margin: 0 auto;
+}
+
+.presentColor{
+  background-color: #8fd19e;
+}
+
+.absentColor{
+  background-color: #ed969e;
+}
+.leaveColor{
+  background-color: #dee2e6;
+}
