@@ -1,0 +1,26 @@
+<%- include ("../../partials/header") %>
+
+        <div class="container">
+            <p class="display-4"> <%= classes.name %> </p>
+            <hr class="my-5" style="border: 1px solid black;" >
+            <p style="font-size: 2rem;" >All Students</p>
+            <table class="table table-bordered table-striped table-primary">
+                <thead >
+                    <tr>
+                        <th scope="col">Roll Number</th>
+                        <th scope="col">Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% classes.students.forEach((stu)=>{ %>
+                        <tr > 
+                            <td scope="row"> <%=  stu.roll %> </td>
+                            <td> <%=  stu.fullname %> </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+            <!-- <a href="/professor/class/<%= classes._id %>/student/new" class="btn btn-outline-primary">Add Students</a> -->
+        </div>
+
+<%- include ("../../partials/footer") %>

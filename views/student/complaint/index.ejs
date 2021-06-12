@@ -1,0 +1,40 @@
+<%- include ("../../partials/header") %>
+<div class="container">
+    <p class="display-4"> Complaint History </p>
+    <hr class="my-5" style="border: 1px solid black;" >
+    <% var len = complaint.length %>
+    <% if(len==0){ %>
+        <div class="d-flex svgEmpty">
+            <img src="/images/empty.svg" alt="logo"/>
+        </div>
+    <% }else{ %>
+        <table class="table table-bordered table-primary mt-5">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Registerd Date</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <% var i=1; %>
+            <tbody>
+                <% complaint.forEach(function(c){ %>
+                    <tr>
+                        <td><%= i %></td>
+                        <td><%= c.category %></td>
+                        <td><%= c.date.getDate() %>/<%= c.date.getMonth() + 1 %>/<%= c.date.getFullYear() %></td>
+                        <% i++; %>
+                        <td>
+                            <a href="/student/complaint/<%= c._id %>" class="btn btn-sm btn-outline-primary" > More Details </a>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } %>
+    <a class="btn btn-outline-primary rounded-pill" href="/student/complaint/new">Add Complaint</a>
+    
+</div>
+
+<%- include ("../../partials/footer") %>

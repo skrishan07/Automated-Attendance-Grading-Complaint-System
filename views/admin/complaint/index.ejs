@@ -1,0 +1,42 @@
+<%- include ("../../partials/header") %>
+    <!-- <p><%= complaint.length %></p> -->
+    <div class="container">
+        <p class="display-4">All Complaints </p>
+        <hr style="border: 1px solid black;" >
+    </div>
+    <div class="mt-5 container">
+        <% if(complaint.length===0){ %>
+            <div class="d-flex svgEmpty">
+                <img src="/images/empty.svg" alt="logo"/>
+            </div>
+        <% }else{ %>
+            <table class="table table-bordered table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Hostel</th>
+                        <th scope="col">Registerd Date</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <% var i=1; %>
+                <tbody>
+                    <% complaint.forEach(function(c){ %>
+                        <tr>
+                            <td><%= i %></td>
+                            <td><%= c.category %></td>
+                            <td><%= c.hostel %></td>
+                            <td><%= c.date.getDate() %>/<%= c.date.getMonth() + 1 %>/<%= c.date.getFullYear() %></td>
+                            <td>
+                                <a href="/admin/complaint/<%= c._id %>" class="btn btn-sm btn-outline-primary" > More Details </a>
+                            </td>
+                            <% i++; %>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        <% } %>
+    </div>
+
+<%- include ("../../partials/footer") %>

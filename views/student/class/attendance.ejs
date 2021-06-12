@@ -1,0 +1,53 @@
+<%- include ("../../partials/header") %>
+
+<div class="container">
+    <p class="display-4"><%= classes.name %></p>
+    <hr class="my-5" style="border: 1px solid black;" >
+    <p style="font-size: 2rem;" >Attendance</p>
+    <% if(classes.attendancedate.length===0){ %>
+        <div class="d-flex svgEmpty">
+            <img src="/images/empty.svg" alt="logo"/>
+        </div>
+    <% }else{ %>
+        <div class="row text-center">
+            <table class="table table-bordered table-striped table-primary" style="width: 50%; margin: 2rem;">
+                <thead>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Attendance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% var j=0; var i=0 %>
+                    <% classes.students.forEach(function(s){ %>
+                        <% if( s._id.toString() === givenstudent._id.toString() ){ %>
+                            <%  s.attendance.forEach(function(p){ %>
+                                <tr>
+                                    <% var dt= classes.attendancedate[j].date %>
+                                    <td>
+                                        <%= dt.getDate() %>/<%= dt.getMonth() + 1 %>/<%= dt.getFullYear() %>
+                                    </td>
+                                    <% j++ %>
+                                    <% if( p.present==="Present" ){ %>
+                                        <% i++ %>  
+                                        <td class="presentColor" scope="col"><%= p.present %></td>
+                                    <% }else if( p.present==="Absent" ){ %>
+                                        <td class="absentColor" scope="col"><%= p.present %></td>
+                                    <% }else{ %>
+                                        <td class="leaveColor" scope="col"><%= p.present %></td>
+                                    <% } %>
+                                </tr>
+                            <%  }) %>
+                        <% } %>
+                    <% }); %>
+                    <tr>
+                        <th scope="col">Total ( <%= j %> ) </th>
+                        <td scope="col"> <%=i %></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    <% } %>
+</div>
+
+<%- include ("../../partials/footer") %>

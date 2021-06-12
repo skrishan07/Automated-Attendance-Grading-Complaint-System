@@ -1,0 +1,46 @@
+<%- include ("../../partials/header") %>
+
+<div class="container">
+    <p class="display-4"> <%= classes.name %> </p>
+    <hr class="my-5" style="border: 1px solid black;" >
+    <p style="font-size: 2rem;" >Attendance</p>
+
+    <form action="/professor/class/<%= classes._id %>/attendance/new" method="POST">
+        <table class="table table-bordered table-striped table-primary">
+            <thead>
+                <tr>
+                    <th scope="col">Roll Number</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">
+                        <div class="form-group">
+                            <input class="form-control" type="date" name="date" placeholder="date" required/>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% classes.students.forEach((stu)=>{ %>
+                    <tr>
+                        <td><%=  stu.roll %></td>
+                        <td><%=  stu.fullname %></td>
+                        <td scope="col">
+                            <div class="form-group">
+                                <select name="present">
+                                    <option>Present</option>
+                                    <option >Absent</option>
+                                    <option >Leave</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <div class="form-group">
+            <button class="form-control btn btn-outline-primary rounded-pill" >Submit</button>
+        </div>
+    </form>
+    <a class="btn btn-outline-primary rounded-pill" href="/professor/class/<%= classes._id %>/attendance"> View Attendance </a> 
+</div>
+
+<%- include ("../../partials/footer") %>

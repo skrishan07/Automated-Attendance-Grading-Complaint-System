@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Automated System</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </head>
+    <body>
+        <% if(currentuser){ %>
+            <nav class="navbar navbar-light navbar-expand-xl mb-3" style="background-color: #e3f2fd;">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/<%=currentuser.isrole%>"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Automated System</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end " id="navContent">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link mr-5 text-dark" href="#">Signed In As <%= currentuser.fullname %> </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mr-5 text-dark" href="/logout"><i class="fa fa-sign-in" aria-hidden="true"></i> Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        <% } %>
+
+        <div class="container mt-3">
+            <% if(error && error.length>0){ %>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-danger"><%= error %></a>
+            <% } %>
+            <% if(success && success.length>0){ %>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-success"><%= success %></a>
+            <% } %>
+        </div>

@@ -1,0 +1,20 @@
+<%- include ("partials/header") %>
+        <div class="mt-3 container">
+            <% if(!currentuser){ %>
+                <nav class="navbar navbar-light" style="background-color: #e3f2fd; margin-bottom: 4rem; margin-top: 2rem;">
+                    <a class="navbar-brand"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Automated System </a>
+                    <a class="btn btn-outline-primary  d-flex float-right" href="/login">Login</a>
+                </nav>
+            <% } %>
+            <div class="row">
+                <div class="col-6 mt-5">
+                    <h1>Simplifying Attendance, Grading and Complaint System.</h1>
+                    <p class="mt-5">Helps teachers in maintaining the attendace and grades of students.</p>
+                    <p>And helps students to register complaints easily.</p>
+                </div>
+                <div class="col-6">
+                    <img class="d-none d-md-block" src="/images/logo.svg" alt='logo' style="height: 18rem; margin-top: 80px;" >
+                </div>
+            </div>
+        </div>
+<%- include ("partials/footer") %>

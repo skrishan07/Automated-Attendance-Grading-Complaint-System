@@ -1,0 +1,44 @@
+<%- include ("../../partials/header") %>
+
+    <div class="container">
+        <p class="display-4"> <%= classes.name %> </p>
+        <hr class="my-5" style="border: 1px solid black;" >
+        <p style="font-size: 2rem;" >View Attendance</p>
+        <table class="table table-bordered table-striped table-primary">
+            <thead>
+                <tr>
+                    <th scope="col">Roll Number</th>
+                    <th scope="col">Name</th>
+                    <% var c=0 %>
+                    <%  classes.attendancedate.forEach((dt)=>{ %>
+                        <% c+=1 %>
+                        <th scope="col"><%= dt.date.getDate() %>/<%= dt.date.getMonth() + 1 %>/<%= dt.date.getFullYear() %></th> 
+                    <% }) %>
+                    <th scope="col">Total (<%= c %>) </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% classes.students.forEach((stu)=>{ %>
+                    <tr>
+                        <td><%=  stu.roll %></td>
+                        <td><%=  stu.fullname %></td>
+                        <% var total=0; %>
+                        <%  stu.attendance.forEach((dt)=>{ %>
+                            <% if(  dt.present  === "Present" ){ %>
+                                <% total+=1; %>
+                                <td class="presentColor"> <%= dt.present %> </td>
+                            <% }else if(  dt.present  === "Absent" ){ %>
+                            <td class="absentColor" > <%= dt.present %> </td>
+                            <% }else { %>
+                                <td class="leaveColor"> <%= dt.present %> </td>
+                            <% } %>
+                        <% }) %>
+                        <td > <%= total %> </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <a class="btn btn-outline-primary rounded-pill" href="/professor/class/<%= classes._id %>/attendance/new">Add Attendance </a>
+    </div>
+
+<%- include ("../../partials/footer") %>

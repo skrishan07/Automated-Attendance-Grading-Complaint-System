@@ -1,0 +1,43 @@
+<%- include ("../../partials/header") %>
+
+    <div class="container">
+        <p class="display-4"> Complaint Details </p>
+        <hr style="border: 1px solid black;" >
+        <table class="table table-bordered table-primary mt-5">
+            <tbody>
+                <tr>
+                    <th scope="row">Category</th>
+                    <td><%= complaint.category %></td>
+                </tr>
+                <tr>
+                    <th scope="row">Complainer Name</th>
+                    <td><%= student.fullname %></td>
+                </tr>
+                <tr>
+                    <th scope="row">Complainer Roll Number</th>
+                    <td><%= student.roll %></td>
+                </tr>
+                <tr>
+                    <th scope="row">Hostel Name</th>
+                    <td><%= complaint.hostel %></td>
+                </tr>
+                <tr>
+                    <th scope="row">Room Number</th>
+                    <td><%= complaint.room %></td>
+                </tr>
+                <tr>
+                    <th scope="row">Date</th>
+                    <td><%= complaint.date.getDate() %>/<%= complaint.date.getMonth() + 1 %>/<%= complaint.date.getFullYear() %></td>
+                </tr>
+                <tr>
+                    <th scope="row">Complaint Details</th>
+                    <td><%= complaint.detail %></td>
+                </tr>
+            </tbody>
+        </table>
+        <form class="d-inline" action="/admin/complaint/<%=complaint._id%>?_method=DELETE" method="POST">
+            <button class="btn btn-outline-danger my-2" >Delete</button>
+        </form>
+    </div>
+
+<%- include ("../../partials/footer") %>

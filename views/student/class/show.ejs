@@ -1,0 +1,31 @@
+<%- include ("../../partials/header") %>
+
+<div class="container">
+    <p class="display-4">All Classes</p>
+    <hr class="my-5" style="border: 1px solid black;" >
+    <% var len = student.courses.length %>
+    <% if(len==0){ %>
+        <div class="d-flex svgEmpty">
+            <img src="/images/empty.svg" alt="logo"/>
+        </div>
+    <% }else{ %>
+        <div class="row">
+            <% student.courses.forEach(function(course){ %>
+                <div class="col-6 col-lg-3 col-sm-6 mb-3">
+                    <div class="card rounded-sm h-100">
+                        <div class="card-header bg-dark text-white text-center">
+                            <h5 class="card-title mt-2"><%= course.classcode %></h5>
+                            <p class="card-title"><%= course.name %></p>
+                        </div>
+                        <div class="card-body">
+                            <a class="btn btn-outline-primary mt-2 rounded-pill" href="/student/classes/<%= course.id %>/attendance">View Attendance</a>
+                            <a class="btn btn-outline-primary mt-2 rounded-pill" href="/student/classes/<%= course.id %>/grade">View Grades</a>
+                        </div>   
+                    </div>                                     
+                </div>  
+            <% }); %>    
+        </div>
+        <% } %>
+</div>
+
+<%- include ("../../partials/footer") %>

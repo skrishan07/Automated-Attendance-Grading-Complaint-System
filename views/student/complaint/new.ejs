@@ -1,0 +1,45 @@
+<%- include ("../../partials/header") %>
+<div class="container">
+    <!-- <h1> <%= student %> </h1> -->
+    <p class="display-4">Register Complaint</p>
+    <hr class="my-5" style="border: 1px solid black;" >
+    <div class="mt-5">
+
+        <form action="/student/complaint/new"  method="POST">
+            <div class="form-group">
+                <label>Category</label>
+                <select class="custom-select my-1 mr-sm-2" name="category" required>
+                    <option value="">Category</option>
+                    <option value="Electricity">Electricity</option>
+                    <option value="Carpenter">Carpenter</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Complaint Details</label>
+                <textarea class="form-control" name="detail" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <label>Hoster Name / Number</label>
+                <select class="custom-select my-1 mr-sm-2" name="hostel" required>
+                    <option value="">Hostel</option>
+                    <option value="BH-1">BH - 1</option>
+                    <option value="BH-2">BH - 2</option>
+                    <option value="BH-3">BH - 3</option>
+                    <option value="GH-3">GH - 1</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Room Number</label>
+                <input class="form-control" type="text" name="room" placeholder="Room Number" required/>
+            </div>
+    
+            <div class="form-group mt-5">
+                <button class="form-control btn btn-outline-primary rounded-pill">Submit</button>
+            </div>
+        </form>
+    </div>
+    <a class="btn btn-outline-primary rounded-pill" href="/student/complaint">View All Complaints</a>
+</div>
+
+<%- include ("../../partials/footer") %>

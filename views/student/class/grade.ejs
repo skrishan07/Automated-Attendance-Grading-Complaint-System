@@ -1,0 +1,33 @@
+<%- include ("../../partials/header") %>
+
+<div class="container">
+    <p class="display-4"><%= classes.name %></p>
+    <hr class="my-5" style="border: 1px solid black;" >
+    <p style="font-size: 2rem;" >Grades</p>
+    <% if(classes.gradetitle.length===0){ %>
+        <div class="d-flex svgEmpty">
+            <img src="/images/empty.svg" alt="logo"/>
+        </div>
+    <% }else{ %>
+        <div class="row text-center">
+            <% var len = classes.gradetitle.length %>
+                
+            <% classes.students.forEach(function(s){ %>
+                <% if( s._id.equals(givenstudent._id) ){ %>
+                    <table class="table table-bordered table-striped table-primary">
+                        <tbody>
+                            <% for(var i=0;i<len;i++){ %>
+                                <tr>
+                                    <th scope="row"> <%= classes.gradetitle[i].title %> ( <%= classes.gradetitle[i].total %> ) </th>
+                                    <td> <%= s.grade[i].marks %> </td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                <% } %>
+            <% }); %>
+        </div>
+    <% } %>
+</div>
+
+<%- include ("../../partials/footer") %>

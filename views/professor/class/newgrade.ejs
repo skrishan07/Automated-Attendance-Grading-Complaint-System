@@ -1,0 +1,44 @@
+<%- include ("../../partials/header") %>
+
+    <div class="container">
+        <p class="display-4"> <%= classes.name %> </p>
+        <hr class="my-5" style="border: 1px solid black;" >
+        <p style="font-size: 2rem;" >Grades</p>
+        <form action="/professor/class/<%= classes._id %>/grade/new" method="POST">
+            <table class="table table-bordered table-striped table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">Roll Number</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="title" placeholder="Title" required/>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% classes.students.forEach((stu)=>{ %>
+                        <tr>
+                            <td><%=  stu.roll %></td>
+                            <td><%=  stu.fullname %></td>
+                            <td scope="col" class="m-1">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="marks" placeholder="Marks" required/>
+                                </div>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+            <div class="form-group ">
+                <input class="form-control" type="text" name="total" placeholder="Total" required/>
+            </div>
+            <div class="form-group">
+                <button class="form-control btn btn-outline-primary rounded-pill" >Submit</button>
+            </div>
+        </form>
+        <a class="btn btn-outline-primary rounded-pill" href="/professor/class/<%= classes._id %>/grade">View Grades </a>
+    </div>
+
+<%- include ("../../partials/footer") %>
